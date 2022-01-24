@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.main a {
+    display: inline-block;
+    width: 100px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    background: orange;
+    color: white !important;
+}
