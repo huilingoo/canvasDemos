@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <title>starLine</title>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/flower.js"></script>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+
+    canvas {
+        margin: 20px auto;
+    }
+
+
+    .main {
+        width: 1024px;
+        height: 700px;
+        margin: auto;
+        margin-top: calc((100vh - 700px)/2);
+        position: relative;
+
+    }
+
+    .handle1 {
+        opacity: 0;
+        position: absolute;
+        left: 964px;
+        top: 74px;
+    }
+
+    .handle2 {
+        opacity: 0;
+        position: absolute;
+        left: 928px;
+        top: 74px;
+    }
+
+    .paperBg {
+        position: absolute;
+        left: 62px;
+        top: 134px;
+    }
+
+    .mask {
+        width: 903px;
+        height: 447px;
+        background: black;
+        position: absolute;
+        left: 62px;
+        top: 134px;
+    }
+
+    canvas {
+        opacity: 0;
+        position: absolute;
+        left: 117px;
+        top: 134px;
+        width: 793px;
+        height: 413px;
+        background: url('./img/brand.png');
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('#handle1').animate({ opacity: 1 }, 1500);
+        $('#handle2').animate({ opacity: 1 }, 1500, function() {
+            $('#handle2').animate({ left: '28px' }, 2000);
+            $('#mask').animate({ width: 0 }, 2000, function() {
+            $('canvas').animate({ opacity: 1 }, 2000);
+        });
+        });
+        
+        
+        setTimeout(() => {
+            main();
+        }, 5600)
+
+    });
+
+</script>
+
+<body>
+    <div class="main">
+
+        <img src="./img/paperBg.png" alt="" class="paperBg" id="paperBg">
+        <div class="mask" id="mask"></div>
+        <img src="./img/handle.png" alt="" class="handle1" id="handle1">
+        <img src="./img/handle.png" alt="" class="handle2" id="handle2">
+        <canvas width="793" height="413" id="flower"></canvas>
+
+    </div>
+
+    <img src="./img/brand.png" style="display: none;" alt="" id="brand">
+    <img src="./img/word1.png" style="display: none;" alt="" id='word1'>
+    <img src="./img/word2.png" style="display: none;" alt="" id='word2'>
+    <img src="./img/word3.png" style="display: none;" alt="" id='word3'>
+</body>
+
+</html>
